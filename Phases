@@ -1,0 +1,48 @@
+Axon Local Media Ad Players / Best of the North Shore / Robotics Team 3267
+
+Phase 1:
+Scan QR Codes: Users will scan QR codes from various advertisements placed in newspapers, flyers, bathrooms, and gas stations.
+
+This action directs users to the mobile version of the ad player, showcasing the BNS events and advertisements
+
+Requirements: Web server, CMS, mobile app, control panel, integration with event calendar, and BNS website.
+
+Phase 2:
+Kiosks (55"): Deploy 55” kiosks, which can be either touch-enabled or not, to deliver content directly to consumers at specific locations.
+
+BOM Costs at present: Cheapest option     = $550.00
+              Suggested options = $2268.00
+____________________________________________
+each 55” touchscreen kiosk costs approximately $2,109, Amazon Link
+(alternative option of using any TV/Monitor with HDMI connectivity around $400, Amazon Link
+
+Each Pi costs around $159, Amazon Link
+Costs are subject to change due to third-party purchases.
+
+Requirements: Auto-update API, manual update API, and touch interface updates.
+
+Installation = hourly rate (estimated around $200-$300)
+
+Phase 3:
+Analytics Suite: Implement a full analytics suite to track user interactions and provide data on the effectiveness of various content and locations. The data will let us know what is working well, what is not working and help drive decisions to ensure the best ROI
+
+Phase 4:
+Custom Implementations: Address specific feature requests for kiosks from various locations. For example:
+- **Logan:** May want to Integrate the ad player with his bowling score display and existing ad player solution - Can we integrate without him having to do any additional work in a way that gives him benefit.
+- **Mike Johnson:** Could we Incorporate his existing TV loop content in his lobby.
+- **Faron:** Allow his True Value ads to run on the kiosk - end caps is a thing we discussed at one point..
+- **The Lounge:** Compete with their generic ad display by providing current and customized content etc…
+
+The software using a local server that can serve the content with or without internet and also a web based Content management system allows us to customize individual kiosks to work for individual cases - It’s good practice for the robotics team to learn to customize for unique situations, yet ensure quality with supervision and oversight from an industry expert.
+
+Phase 5:
+Bring Additional Business Value:  Enable kiosks, desktops, or mobile apps to act as POS systems, allowing viewers to make purchases, book services, or schedule events directly. Examples include:
+- Booking hotel stays
+- Purchasing adventure park tickets
+- Scheduling tee times at mini golf or full golf courses
+- Booking bowling times
+- Making dinner reservations
+- Buying gift cards
+
+Phase 6:
+Expansion: Extend services to other areas to effectively monetize and promote our region
