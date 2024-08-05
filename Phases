@@ -3,7 +3,7 @@ Axon Local Media Ad Players / Best of the North Shore / Robotics Team 3267
 Phase 1:
 Scan QR Codes: Users will scan QR codes from various advertisements placed in newspapers, flyers, bathrooms, and gas stations.
 
-This action directs users to the mobile version of the ad player, showcasing the BNS events and advertisements
+This action directs users to the mobile version of the ad player, showcasing the BNS events and advertisements (advertisements for the area, and any ads that we sell)
 
 Requirements: Web server, CMS, mobile app, control panel, integration with event calendar, and BNS website.
 
