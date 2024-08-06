@@ -1,0 +1,71 @@
+
+Phase 1: (Mobile version of the ad player)
+This phase would accommodate BNS placing advertisements on existing social media accounts, websites, billboards, in addition to purchasing advertisements in newspapers, magazines, flyers, and potentially flyers, bathroom ads, and gas station ad players. 
+
+Upon scanning the QR code or navigating to the app - Our app will display the BNS event calendar, area ads, area info, and any purchased ads (businesses paying to advertise within our app).
+
+Implementation steps:
+
+Determine tech stack.
+
+In the past I’ve created a version written with a LAMP stack (Linux, Apache, MySQL and PHP) with a lot of front end Javascript but propose that we investigate creating a new version with React or ReactNative - as they have advantages that will be the most beneficial for the kids to learn.
+
+LAMP stack:  is a traditional server-side technology stack for building web applications.
+The LAMP stack (Linux, Apache, MySQL, PHP) is a classic technology stack for building web applications. It has been widely used for many years due to its reliability, open-source nature, and strong community support.
+
+React: is a JavaScript library for building user interfaces, primarily focused on web development. It helps developers build complex, interactive, and dynamic web applications with a component-based architecture. 
+Typical Use Cases:
+Single-page applications 
+Dynamic web applications
+Dashboards and admin panels
+E-commerce sites
+React Native: is a framework for building native mobile applications using JavaScript and React. It enables developers to write code once and deploy it on both iOS and Android platforms. Typical Use Cases:
+Cross-platform mobile applications
+Prototypes and MVPs for mobile apps
+Apps requiring access to device-specific features (camera, GPS, etc.)
+If we use React Native we benefit by allowing users to install the app on their own device, The likelihood of users downloading our mobile app would however depend on how well the app aligns with user needs and expectations. The reality is until we complete phase 5 - we won’t have a viable app that provides enough value that I would expect people would want to install it on their devices.
+
+Creating Dynamic QR codes:
+
+We’ll need to create QR codes programmatically from within our app.
+For the lamp stack: We can use libraries like PHP QR Code, Endroid QR Code, or phpqrcode to generate QR codes
+
+For React: We can use a QR code generation library, such as qrcode.react or react-qr-code, to render QR codes dynamically based on the state or props in our React components.
+
+Scanning the QR code directs users to the mobile version of the ad player, showcasing the BNS events and advertisements (advertisements for the area, and any ads that we sell)
+
+Mobile Kiosk App/Carousel:
+We need a visually appealing way to display or showcase multiple items, services, features, or products in a single space while maintaining a good user experience. That's where Carousels (interactive, rotating slideshows) shine.
+The Kiosk App will need to accommodate space for the ads, area info, the events from the event calendar, as well as branding, and information on how to get your information or add included. Using a Carousel to cycle through information is the general way that this is achieved.
+
+Lamp Stack: Carousel’s are a front end tech that will be written utilizing javascript - there’s a number of libraries we can leverage and I’ve got extensive experience writing them from scratch.
+
+React: React Slick is a carousel component that seems to include a great carousel library
+
+We’ll need to create a wireframe to plan out the locations of the different user interface elements. We need to keep in mind that Phase 1 will be for the mobile version of the app but we’ll want to have a consistent look once we start future phases and the same elements should be able to be displayed on a 4” screen for mobile, a 55” screen for Kiosks and a variety of screen sizes in between for desktop and tablet viewers. - So planning out a number of screen sizes will allow us to create a responsive design that adjusts to the user's viewing device.
+
+
+
+
+
+Example of wireframing (focus is on the UI layout, not the final finished design)
+
+
+Integration with Event Calendar:
+
+With Lamp Stack: the event calendar was built on a Lamp Stack so integration would be to run sql statements to the database and be able to use the data.
+
+With React: The event calendar was build on a Lamp stack so integration would be to build a backend script that provides JSON data and use axios.get to fetch the data into react.
+
+Control Panel
+We’ll need a way for the designer to add ads, and customize certain information that is stored in the database - since the event calendar is already using MySQL it makes the most sense to use the same database rather than creating another solution.
+	Database design - requirements tbd as UI and integrations are solidified
+	User Interface - adding a new ad
+	User interface - modifying options (where the ad will display for example)
+
+Web server
+For BNS specific content, I’m already maintaining the BNS website on an Apache server running on a Ubuntu linux distribution and it makes sense to add the content to the site rather than creating a separate server. For the most part the content will be able to transfer to individual localized servers running on a debian linux distribution when phase 2 with the Kiosks is started.
+
+Access
+I’ve set up a github repository where we can share code and ensure that the kids are able to create their own branches to experiment and contribute while allowing a code review and ensuring proper security to our live site.
+https://github.com/frbaker/Kiosk (at present it is a public repo which anyone can view - database credentials and private data will be stored outside of the repo).
