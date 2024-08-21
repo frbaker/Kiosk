@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Allura');
+
+
 .App {
   text-align: center;
 }
@@ -12,7 +15,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.homePageContent{
+  color:blanchedalmond;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +40,150 @@
   to {
     transform: rotate(360deg);
   }
+}
+.ads { 
+  grid-area: ads;
+}
+.weather { 
+  grid-area: weather; 
+  color:white;
+  margin-left: 20px;
+}
+.events { 
+  grid-area: events; 
+  background-color:white;
+}
+
+.headerH1 {
+  color:white;
+  text-align:center;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 1fr 40%;
+  grid-template-areas:
+  'ads ads events'
+  'weather weather events';
+	gap:15px 20px;
+  padding: 10px;
+}
+.weather-container{
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: 30% 30% 30%; /*Make the grid smaller than the container*/
+  gap: 10px;
+}
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'ads ads'
+      'events events'
+      'weather weather';
+  }
+  .weather-container{
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 90%; /*Make the grid smaller than the container*/
+    gap: 10px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'ads ads'
+      'events events'
+      'weather weather';
+  }
+  .weather-container{
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 45% 45%; /*Make the grid smaller than the container*/
+    gap: 10px;
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 200px 1fr 300px;
+    grid-template-areas:
+      'ads ads events'
+      'weather weather events';
+  }
+  .weather-container{
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 45% 45%; /*Make the grid smaller than the container*/
+    gap: 10px;
+  }
+}
+
+/* Extra-large devices (large desktops) */
+@media (min-width: 1025px) {
+  .grid-container {
+    grid-template-columns: 250px 1fr 400px;
+    grid-template-areas:
+      'ads ads events'
+      'weather weather events';
+  }
+  .weather-container{
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 30% 30% 30%; /*Make the grid smaller than the container*/
+    gap: 10px;
+  }
+}
+h1 {
+  color: rgba(241,98, 35, 1);
+  text-align: center;
+  background-clip: border-box;
+  background-image: none;
+  font-size: 2.5em;
+  font-family: Allura;
+  margin-bottom:0;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  border:solid 1px black;
+  border-radius:20px;
+  padding:0 20px;
+}
+.weatherHeader{
+  padding-bottom:0;
+  margin-bottom:0;
+}
+.eventCal{
+  text-align:center;
+  font-family: allura;
+  color:rgba(241,98, 35, 1);
+  font-size:2.5em;
+  margin-bottom:0;
+  margin-top:0;
+}
+.eventSwipe {
+  margin-top:0;
+  position:relative;
+  top:-10px;
+  text-align:center;
+}
+.events-slide{
+  border:solid 1px #000;
+  border-radius:50px;
+  margin-top:0;
+  padding-top:0;
+}
+.eventDate{
+  font-weight:bold;
+  font-size:1.3em
+}
+.eventTime{
+  font-size: .9em;
 }
