@@ -102,6 +102,14 @@ function Kiosk() {
     fetchAds();
     fetchEvents();
     fetchWeather();
+
+    const interval = setInterval(() => {
+      fetchAds();
+      fetchEvents();
+      fetchWeather();
+    }, 90 * 60 * 1000); // Check for updates every 90 minutes
+
+    return () => clearInterval(interval); // Cleanup on component unmount
   }, [id]);
 
   const sliderSettings = {
