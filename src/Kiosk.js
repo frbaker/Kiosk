@@ -19,7 +19,7 @@ function Kiosk() {
   const [eventsError, setEventsError] = useState(null);
   const [weatherError, setWeatherError] = useState(null);
 
-  const adsVersionUrl = `http://axoncentral.com/ads-version.php`;
+  const adsVersionUrl = `http://axoncentral.com/ads-version.php?media=player&playerId=${id}`;
   const eventsVersionUrl = `http://bestofthenorthshore.com/events-version.php`;
   const weatherUrl = `https://api.weather.gov/gridpoints/DLH/117,94/forecast`;
 
