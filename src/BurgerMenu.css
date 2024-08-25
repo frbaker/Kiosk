@@ -1,43 +1,94 @@
-/* Basic styling for the burger menu */
 .bm-menu {
-    background: #d1c4c4;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-    color: white;
-  }
-  
-  .bm-item {
-    display: inline-block;
-    margin: 0.5em 0;
-  }
-  
-  .bm-item a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .bm-item:hover a {
-    text-decoration: underline;
-  }
-  
-  .bm-burger-button {
-    position: fixed;
-    width: 36px;
-    height: 30px;
-    left: 20px;
-    top: 20px;
-  }
-  
-  .bm-burger-bars {
-    background: #fff;
-  }
-  
-  .bm-cross-button {
-    height: 24px;
-    width: 24px;
-  }
-  
-  .bm-cross {
-    background: #fff;
-  }
-  
+  background: #bac5f1;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  position: relative; /* Ensure submenus are positioned relative to this container */
+}
+
+.bm-item {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8em;
+  touch-action: manipulation; /* Enable touch interactions */
+  position: relative; /* Ensure submenus are positioned correctly */
+}
+
+.bm-item:hover {
+  color: #b5b5b5;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 20px; /* Position 20px from the left */
+  top: 20px;
+}
+
+.bm-burger-bars {
+  background: #fff;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #fff;
+}
+
+.sub-menu,
+.sub-sub-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #444;
+  display: none; /* Start collapsed */
+  top: 0;
+}
+
+.sub-menu li,
+.sub-sub-menu li {
+  position: relative;
+}
+
+.sub-menu li a,
+.sub-sub-menu li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8em;
+  display: block;
+}
+
+.sub-menu li a:hover,
+.sub-sub-menu li a:hover {
+  background: #555;
+}
+
+.sub-menu {
+  background: #444;
+}
+
+.sub-sub-menu {
+  background: #333;
+}
+
+.menu-item:hover .sub-menu,
+.sub-menu li:hover .sub-sub-menu {
+  display: block; /* Show on hover */
+}
+
+.menu-item:hover,
+.sub-menu li:hover {
+  background: #555; /* Highlight item on hover */
+}
+
+/* Ensure that the submenu items are large enough to be easily touched */
+.sub-menu li,
+.sub-sub-menu li {
+  padding: 0.8em;
+  min-height: 50px;
+  touch-action: manipulation;
+}
