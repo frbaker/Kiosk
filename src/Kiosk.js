@@ -4,6 +4,7 @@ import axios from 'axios';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import BurgerMenu from './BurgerMenu';
 
 function Kiosk() {
   const { id } = useParams();
@@ -18,6 +19,7 @@ function Kiosk() {
   const [adsError, setAdsError] = useState(null);
   const [eventsError, setEventsError] = useState(null);
   const [weatherError, setWeatherError] = useState(null);
+  const [time, setTime] = useState(new Date());
 
   const adsVersionUrl = `http://axoncentral.com/ads-version.php?media=player&playerId=${id}`;
   const eventsVersionUrl = `http://bestofthenorthshore.com/events-version.php`;
@@ -27,6 +29,17 @@ function Kiosk() {
   const eventsUrl = `http://bestofthenorthshore.com/events-activities/kioskJSON.php`;
 
   useEffect(() => {
+    const updateTime = () => {
+      setTime(new Date());
+    };
+
+    // Update time immediately
+    updateTime();
+
+    const intervalId = setInterval(updateTime, 1000*60);
+
+
+
     const fetchAds = async () => {
       try {
         const adsVersionResponse = await axios.get(adsVersionUrl);
@@ -109,8 +122,28 @@ function Kiosk() {
       fetchWeather();
     }, 90 * 60 * 1000); // Check for updates every 90 minutes
 
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => {
+      clearInterval(interval); // Clear time update interval
+      clearInterval(intervalId); // Clear data fetch interval
+    };
   }, [id]);
+
+  // Function to format the time as 'Sun Aug 25 9:30 AM'
+  const formatTime = (date) => {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const dayName = days[date.getDay()];
+    const monthName = months[date.getMonth()];
+    const day = date.getDate();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const isPM = hour >= 12;
+    const formattedHour = hour % 12 || 12; // Convert 24-hour to 12-hour format
+    const formattedMinute = minute < 10 ? `0${minute}` : minute; // Add leading zero for minutes
+
+    return `${dayName} ${monthName} ${day} ${formattedHour}:${formattedMinute} ${isPM ? 'PM' : 'AM'}`;
+  };
 
   const sliderSettings = {
     dots: true,
@@ -144,6 +177,7 @@ function Kiosk() {
     <div className="grid-container">
       <div className="ads">
         <h1>Welcome to the North Shore</h1>
+    <BurgerMenu />
         {adsLoading && <p>Loading ads...</p>}
         {adsError && <p class="fetchError">{adsError}</p>}
         {ads.length > 0 && (
@@ -195,6 +229,7 @@ function Kiosk() {
         )}
       </div>
       <div className="events">
+        <p className="time">{formatTime(time)}</p>
         <h3 style={{ textAlign: 'center' }}>Best Of the North Shore</h3>
         <h4 className="eventCal">Area Events</h4>
         <p className="eventSwipe">Swipe to navigate</p>

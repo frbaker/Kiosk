@@ -48,6 +48,7 @@
   grid-area: weather; 
   color:white;
   margin-left: 20px;
+  align-self: start;
 }
 .events { 
   grid-area: events; 
@@ -66,12 +67,15 @@
   'weather weather events';
 	gap:15px 20px;
   padding: 10px;
+  grid-template-rows: auto 1fr;
+  grid-auto-rows: min-content;
 }
 .weather-container{
   display: grid;
   justify-content: space-evenly;
   grid-template-columns: 30% 30% 30%; /*Make the grid smaller than the container*/
   gap: 10px;
+  align-self: start;
 }
 
 /* Small devices (phones) */
@@ -82,6 +86,8 @@
       'ads ads'
       'events events'
       'weather weather';
+      grid-template-rows: auto auto auto;
+      grid-auto-rows: min-content;
   }
   .weather-container{
     display: grid;
@@ -99,6 +105,8 @@
       'ads ads'
       'events events'
       'weather weather';
+      grid-template-rows: auto auto auto;
+      grid-auto-rows: min-content;
   }
   .weather-container{
     display: grid;
@@ -115,6 +123,8 @@
     grid-template-areas:
       'ads ads events'
       'weather weather events';
+      grid-template-rows: auto 1fr;
+      grid-auto-rows: min-content;
   }
   .weather-container{
     display: grid;
@@ -131,6 +141,8 @@
     grid-template-areas:
       'ads ads events'
       'weather weather events';
+      grid-template-rows: auto 1fr;
+      grid-auto-rows: min-content;
   }
   .weather-container{
     display: grid;
@@ -189,4 +201,7 @@ h1 {
 }
 .fetchError{
   display:none;
+}
+.time{
+  text-align:right;
 }

@@ -1,0 +1,43 @@
+/* Basic styling for the burger menu */
+.bm-menu {
+    background: #d1c4c4;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    color: white;
+  }
+  
+  .bm-item {
+    display: inline-block;
+    margin: 0.5em 0;
+  }
+  
+  .bm-item a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .bm-item:hover a {
+    text-decoration: underline;
+  }
+  
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 20px;
+    top: 20px;
+  }
+  
+  .bm-burger-bars {
+    background: #fff;
+  }
+  
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .bm-cross {
+    background: #fff;
+  }
+  
