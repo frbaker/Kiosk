@@ -31,7 +31,7 @@ const BurgerMenu = () => {
 
   return (
     <Menu pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
-      <a className="menu-item" href="#home">Welcome Message - brief intro to the community/area</a>
+      <a className="menu-item" href="/">Welcome Message</a>
       
       <div
         className="menu-item"

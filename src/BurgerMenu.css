@@ -1,5 +1,5 @@
 .bm-menu {
-  background: #bac5f1;
+  background: #adafb9;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
   position: relative; /* Ensure submenus are positioned relative to this container */
@@ -12,6 +12,8 @@
   padding: 0.8em;
   touch-action: manipulation; /* Enable touch interactions */
   position: relative; /* Ensure submenus are positioned correctly */
+  font-weight:bold;
+  
 }
 
 .bm-item:hover {

@@ -2,86 +2,25 @@ import React from 'react';
 
 function HomePage() {
   return (
-    <div class="homePageContent">
+    <div className="homePageContent">
       <h1>Best of the NorthShore</h1>
       <p>If you have to ask, You've never been there.</p>
-<ul>
-  <li>Welcome Message - brief intro to the community/area</li>
-  <li>Local Announcements / info
-    <ul>
-      <li>School events</li>
-      <li>Community meetings</li>
-      <li>government
-        <ul>
-          <li>Municipal services</li>
-          <li>Contact info</li>
-          <li>Public Meetings</li>
-          <li>Permits and licensing</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Business directory
-    <ul>
-      <li>Job listings</li>
-    </ul>
-  </li>
-  <li>government services</li>
-  <li>Weather conditions</li>
-  <li>Transportation schedule /options
-    <ul>
-      <li>Silver Bay Shuttle Service</li>
-      <li>Cadilac Cab</li>
-    </ul>
-  </li>
-  <li>Events Calendar
-    <ul>
-      <li>Upcoming Events</li>
-      <li>Festivals
-        <ul>
-          <li>Bay Days</li>
-          <li>Music in the Park</li>
-        </ul>
-      </li>
-      <li>Things To Do</li>
-      <li>Dining/Entertainement</li>
-      <li>Accomodations</li>
-      <li>Visitor information
-        <ul>
-          <li>Maps
-            <ul>
-              <li>Save your map / trip planner</li>
-            </ul>
-          </li>
-          <li>Tips</li>
-          <li>Travel Guide</li>
-        </ul>
-      </li>
-      <li>Club meetings/sports leagues</li>
-      <li>Garage sales</li>
-      <li>Event Submission - option for locals to submit events for inclussion</li>
-    </ul>
-  </li>
-  <li>Real Estate</li>
-  <li>Classified
-    <ul>
-      <li>Buy / Sell / Trade</li>
-      <li>Lost and Found</li>
-    </ul>
-  </li>
-  <li>Interactive Maps
-    <ul>
-      <li>Map showing key points of interest</li>
-      <li>Customizable map - scan QR to take with you</li>
-      </ul></li>
-</ul>
 
-<p>Inclussion of these components would create a go-to resource for everything to the local area - fostering community engagement and making the area more accessible to both residents and visitors.</p>
-      <ul>
-      <li><a href="/kiosk/1">Kiosk 1</a></li>
-      <li><a href="/kiosk/2">Kiosk 2</a></li>
-      <li><a href="/kiosk/3">Kiosk 3</a></li>
-      </ul>
+      <h1>Welcome to Silver Bay!</h1>
+
+      <p>Discover the beauty and charm of the North Shore of Lake Superior. Whether you're here for a relaxing getaway, an outdoor adventure, or to explore our unique local attractions, we’re thrilled to have you!</p>
+
+      <p className="bold">Explore Our Highlights</p>
+
+      <p>Scenic Views: Take in breathtaking vistas along our rugged shoreline and lush forests.
+      Outdoor Activities: Enjoy hiking, fishing, and boating in our pristine natural surroundings.
+      Local Attractions: Visit local shops, dine at cozy eateries, and experience the rich history and culture of our community.
+      For more information on things to do, places to visit, and local events, please explore the options on this kiosk. If you need any assistance, don’t hesitate to ask!
+      </p>
+      <p>Thank you for visiting Silver Bay. We hope you have a memorable stay!</p>
+
+      <p><a href="/kiosk/1">Return to Kiosk</a></p>
+      <p>This kiosk is provided by the Best of the North Shore (Silver Bay area tourism association), in cooperation with the Silver Bay Robotics team (3267) and design and software development by Jessica & Floyd Baker.</p>     
     </div>
   );
 }

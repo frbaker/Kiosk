@@ -205,3 +205,6 @@ h1 {
 .time{
   text-align:right;
 }
+.bold{
+  font-weight: bold;
+}
