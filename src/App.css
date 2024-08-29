@@ -151,6 +151,25 @@
     gap: 10px;
   }
 }
+
+/* Kiosk devices (really large desktops) */
+@media (min-width: 2000px) {
+  .grid-container {
+    grid-template-columns: 250px 1fr 800px;
+    grid-template-areas:
+      'ads ads events'
+      'weather weather events';
+      grid-template-rows: auto 1fr;
+      grid-auto-rows: min-content;
+  }
+  .weather-container{
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 30% 30% 30%; /*Make the grid smaller than the container*/
+    gap: 10px;
+  }
+}
+
 h1 {
   color: rgba(241,98, 35, 1);
   text-align: center;
