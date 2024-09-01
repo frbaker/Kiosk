@@ -20,6 +20,33 @@ function Kiosk() {
   const [eventsError, setEventsError] = useState(null);
   const [weatherError, setWeatherError] = useState(null);
   const [time, setTime] = useState(new Date());
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
+
+  const [touchPosition, setTouchPosition] = useState(null);
+
+  const handleTouchStart = (event) => {
+    const touch = event.touches[0];
+    setTouchPosition({ x: touch.clientX, y: touch.clientY });
+  };
+
+  const handleTouchMove = (event) => {
+    const touch = event.touches[0];
+    setTouchPosition({ x: touch.clientX, y: touch.clientY });
+  };
+
+  const handleTouchEnd = () => {
+    setTouchPosition(null);
+  };
+
+  const toggleHelp = () => {
+    setIsHelpOpen(!isHelpOpen);
+  };
+
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      setIsHelpOpen(false);
+    }
+  };
 
   const adsVersionUrl = `http://axoncentral.com/ads-version.php?media=player&playerId=${id}`;
   const eventsVersionUrl = `http://bestofthenorthshore.com/events-version.php`;
@@ -174,10 +201,22 @@ function Kiosk() {
   };
 
   return (
-    <div className="grid-container">
+    <div className="grid-container touch-area"
+    onTouchStart={handleTouchStart}
+    onTouchMove={handleTouchMove}
+    onTouchEnd={handleTouchEnd}
+  >
+    {touchPosition && (
+        <div
+          className="touch-highlight"
+          style={{
+            top: `${touchPosition.y}px`,
+            left: `${touchPosition.x}px`,
+          }}
+        />
+      )}
+      <div className="header"><BurgerMenu /><img src="welcome.png" alt="welcome" /><span className="toTheHost">TO THE NORTH SHORE</span></div>
       <div className="ads">
-        <h1>Welcome to the North Shore</h1>
-    <BurgerMenu />
         {adsLoading && <p>Loading ads...</p>}
         {adsError && <p class="fetchError">{adsError}</p>}
         {ads.length > 0 && (
@@ -211,6 +250,78 @@ function Kiosk() {
           </Slider>
         )}
       </div>
+      <div className="smads"><img src="smads.png" alt="halfPageAds" /></div>
+      <div className="qr">
+        <img src="scanToTake.png" alt="Scan to take" /><br />
+        <img src="qr.png" alt="qr" /><br />
+        <img src="thisInfoWithYou.png" alt="This info with you" />
+      </div>
+      <div className="help"><section onTouchStart={toggleHelp}><img src="help.png" alt="help" /></section></div>
+      {isHelpOpen && (
+        <div className="help-overlay" onClick={handleOverlayClick}>
+          <div className="help-content">
+            <button className="close-button" onClick={toggleHelp}>
+              &times;
+            </button>
+            <h2>This is a Help?</h2>
+            <h1>Figure it out yourself!</h1>
+            
+            <h2 className="helpHeader">Menu/Navigation</h2>
+            <p>Our menu helps you to easily navigate to different areas of the kiosk without cluttering the main screen.</p>
+            <h3>How to Find and Use the Menu</h3>
+            <ul>
+              <li>The menu icon looks like three horizontal lines stacked on top of each other found in the top left corner of the screen.</li>
+              <li>Touch or click the menu icon and the navigation options will slide into view.</li>
+              <li>Touch or click on any menu item to navigate to the desired section or feature.</li>
+              <li>Touch or click outside of the menu area to close the navigation options.</li>
+            </ul>
+
+            <h2 className="helpHeader">Ads</h2>
+            <p>Ads on our kiosk provide a targeted way to showcase local attractions, businesses, and events to visitors, enhancing your experience by offering relevant information and opportunities. They also generate revenue for the kiosk operator, benefit the local high school robotics team and help in supporting the sustainability of tourism services.</p>
+            <p>To have your ad placed here, contact info@bestofthenorthshore.com or any member of the Silver Bay Robotics team.</p>
+            <h3>Scrolling through ads</h3>
+            <ul>
+              <li>Swipe left or right on any ad to navigate to the next ad</li>
+              
+            </ul>
+
+            <h2 className="helpHeader">Event Calendar</h2>
+            <p>Our event calendar helps you discover local activities, festivals, and events, enhancing your Silver Bay area experience by offering up-to-date information on what's happening in the area. It provides a convenient resource for planning and enjoying your visit.</p>
+            <p>To have your events highlighted here, contact info@bestofthenorthshore.com or any member of the Silver Bay Robotics team.</p>
+            
+            <h3>Scrolling through events</h3>
+            <ul>
+              <li>Swipe left or right on any event to navigate to the next event</li>
+              <li>When the text for an event doesn't fit, you can scroll down within the event section to view the rest.</li>
+              <li>Scan the QR code with your mobile phone to take the events with you on your own device!</li>
+            </ul>
+
+            <h2 className="helpHeader">Scan the QR Code</h2>
+            <p>QR codes (Quick Response codes) are a type of barcode that can be scanned with a smartphone or tablet to quickly access information or links. Open your device’s camera or a QR code scanning app, point it at the code, and follow the on-screen prompts to take all of the information on this kiosk with you!</p>
+            
+            <h2 className="helpHeader">Things To Do Nearby</h2>
+            <p>Our things to do section shows some suggestions of things to do in the area!</p>
+            
+            <h3>Navigating the "Things To Do" Section</h3>
+            <ul>
+              <li>Tap on any item to view more information!</li>
+              <li>Use the arrows to view additional suggestions or return to one that is no longer visible</li>
+           </ul>
+
+           <h2 className="helpHeader">Weather</h2>
+            <p>Our weather forecast shows the weather predictions for the next few days</p>
+            
+            <h3>View More Weather</h3>
+            <ul>
+              <li>Tap on the weather section to show up to a week forecast</li>
+            </ul>
+            
+          </div>
+        </div>
+      )}
+      
+      <div className="tdd"><img src="tdd.png" alt="tdd" /></div>
+      
       <div className="weather">
         <h1>Silver Bay Weather</h1>
         {weatherLoading && <p>Loading weather...</p>}
@@ -229,14 +340,14 @@ function Kiosk() {
         )}
       </div>
       <div className="events">
-        <p className="time">{formatTime(time)}</p>
-        <h3 style={{ textAlign: 'center' }}>Best Of the North Shore</h3>
-        <h4 className="eventCal">Area Events</h4>
-        <p className="eventSwipe">Swipe to navigate</p>
+        <h2 className="eventsHeader">Area Events</h2>
+        
         {eventsLoading && <p>Loading events...</p>}
         {eventsError && <p class="fetchError">{eventsError}</p>}
         {eventsContent && (
           <div className="slider-container events-slide">
+            <p className="time">{formatTime(time)}</p>
+         <p className="eventSwipe">Swipe to navigate</p>
             <Slider {...eventSliderSettings}>
               {eventsContent.map((event, index) => (
                 <span key={index} style={{backgroundColor:'grey', border:'solid 1px black'}}>
@@ -252,7 +363,9 @@ function Kiosk() {
           </div>
         )}
       </div>
+      <div className="footer"><img src="footer.png" alt="footer" /></div>
     </div>
+    
   );
 }
 
