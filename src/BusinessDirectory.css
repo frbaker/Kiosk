@@ -1,0 +1,23 @@
+.businessDirectoryContent {
+  margin: 0; /* Remove default margins */
+  padding: 20px; /* Space around the page */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  background-color: #272222; /* Optional background color */
+}
+
+.businessDirectoryContainer {
+  width: 80%; /* Adjust content width */
+  max-width: 1200px; /* Set a maximum width */
+  background-color: #fff; /* Optional background for the content */
+  padding: 20px; /* Inner padding for the content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
+  border-radius: 8px; /* Optional rounded corners */
+  font-size: 3em;
+}
+
+.businessDirectoryContainer ul li{
+margin-bottom:1em;
+}

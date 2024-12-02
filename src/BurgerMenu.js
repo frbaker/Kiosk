@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
+import { Link } from 'react-router-dom'; // Add this import for Link
 import './BurgerMenu.css'; // Import the CSS file for additional styling
 
 const BurgerMenu = () => {
@@ -30,50 +31,8 @@ const BurgerMenu = () => {
   };
 
   return (
-    <Menu pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
-      <a className="menu-item" href="/">Welcome Message</a>
-      
-      <div
-        className="menu-item"
-        onMouseEnter={() => handleMouseEnter(0)}
-        onMouseLeave={() => handleMouseLeave(0)}
-        onTouchStart={() => handleTouchStart(0, null, null)}
-        onTouchEnd={handleTouchEnd}
-      >
-        <a href="#local-announcements">Local Announcements / Info</a>
-        <ul className={`sub-menu ${activeMenu === 0 ? 'active' : ''}`}>
-          <li
-            onMouseEnter={() => setActiveSubMenu(0)}
-            onMouseLeave={() => setActiveSubMenu(null)}
-            onTouchStart={() => handleTouchStart(0, 0, null)}
-            onTouchEnd={handleTouchEnd}
-          >
-            <a href="#school-events">School Events</a>
-          </li>
-          <li
-            onMouseEnter={() => setActiveSubMenu(1)}
-            onMouseLeave={() => setActiveSubMenu(null)}
-            onTouchStart={() => handleTouchStart(0, 1, null)}
-            onTouchEnd={handleTouchEnd}
-          >
-            <a href="#community-meetings">Community Meetings</a>
-          </li>
-          <li
-            onMouseEnter={() => setActiveSubMenu(2)}
-            onMouseLeave={() => setActiveSubMenu(null)}
-            onTouchStart={() => handleTouchStart(0, 2, null)}
-            onTouchEnd={handleTouchEnd}
-          >
-            <a href="#government">Government</a>
-            <ul className={`sub-sub-menu ${activeSubMenu === 2 ? 'active' : ''}`}>
-              <li><a href="#municipal-services">Municipal Services</a></li>
-              <li><a href="#contact-info">Contact Info</a></li>
-              <li><a href="#public-meetings">Public Meetings</a></li>
-              <li><a href="#permits-licensing">Permits and Licensing</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    <Menu width={'40vw'} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
+      <Link to="/welcome">Welcome</Link>
       
       <div
         className="menu-item"
@@ -82,10 +41,7 @@ const BurgerMenu = () => {
         onTouchStart={() => handleTouchStart(1, null, null)}
         onTouchEnd={handleTouchEnd}
       >
-        <a href="#business-directory">Business Directory</a>
-        <ul className={`sub-menu ${activeMenu === 1 ? 'active' : ''}`}>
-          <li><a href="#job-listings">Job Listings</a></li>
-        </ul>
+        <Link to="/businessDirectory">Business Directory</Link>
       </div>
       
       <a className="menu-item" href="#government-services">Government Services</a>

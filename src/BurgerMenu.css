@@ -1,11 +1,13 @@
 .bm-menu {
-  background: #adafb9;
+  background-color: rgba(37, 35, 35, .95);
   padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
+  font-size: 2.15em;
   position: relative; /* Ensure submenus are positioned relative to this container */
 }
 
-.bm-item {
+.bm-item,
+.bm-item a,
+.bm-item a:visited {
   display: inline-block;
   color: #fff;
   text-decoration: none;
@@ -22,10 +24,10 @@
 
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 20px; /* Position 20px from the left */
-  top: 20px;
+  width: 126px;
+  height: 130px;
+  left: 80px; /* Position 20px from the left */
+  top: 40px;
 }
 
 .bm-burger-bars {
@@ -93,4 +95,7 @@
   padding: 0.8em;
   min-height: 50px;
   touch-action: manipulation;
+}
+.bm-menu-wrap {
+  width:1500px;
 }
