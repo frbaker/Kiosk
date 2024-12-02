@@ -143,6 +143,11 @@ function Kiosk() {
     fetchEvents();
     fetchWeather();
 
+    const video = document.getElementById('smadVideo');
+    video.play().catch((error) => {
+      console.error('Autoplay failed:', error);
+    });
+
     const interval = setInterval(() => {
       fetchAds();
       fetchEvents();
@@ -215,7 +220,7 @@ function Kiosk() {
           }}
         />
       )}
-      <div className="header"><BurgerMenu /><img src="welcome.png" alt="welcome" /><span className="toTheHost">TO THE NORTH SHORE</span></div>
+      <div className="header"><BurgerMenu /><img src="/kiosk/welcome.png" alt="welcome" /><span className="toTheHost">TO THE NORTH SHORE</span></div>
       <div className="ads">
         {adsLoading && <p>Loading ads...</p>}
         {adsError && <p class="fetchError">{adsError}</p>}
@@ -250,13 +255,19 @@ function Kiosk() {
           </Slider>
         )}
       </div>
-      <div className="smads"><img src="smads.png" alt="halfPageAds" /></div>
-      <div className="qr">
-        <img src="scanToTake.png" alt="Scan to take" /><br />
-        <img src="qr.png" alt="qr" /><br />
-        <img src="thisInfoWithYou.png" alt="This info with you" />
+      <div className="smads">
+      
+      <video id="smadVideo" src="SBJan11th2024flyover.mp4" autoplay loop muted playsinline>
+        Your browser does not support the video tag.
+      </video>
+
       </div>
-      <div className="help"><section onTouchStart={toggleHelp}><img src="help.png" alt="help" /></section></div>
+      <div className="qr">
+        <img src="/kiosk/scanToTake.png" alt="Scan to take" /><br />
+        <img src="/kiosk/qr.png" alt="qr" /><br />
+        <img src="/kiosk/thisInfoWithYou.png" alt="This info with you" />
+      </div>
+      <div className="help"><section onTouchStart={toggleHelp}><img src="/kiosk/help.png" alt="help" /></section></div>
       {isHelpOpen && (
         <div className="help-overlay" onClick={handleOverlayClick}>
           <div className="help-content">
@@ -320,7 +331,7 @@ function Kiosk() {
         </div>
       )}
       
-      <div className="tdd"><img src="tdd.png" alt="tdd" /></div>
+      <div className="tdd"><img src="/kiosk/tdd.png" alt="tdd" /></div>
       
       <div className="weather">
         <h1>Silver Bay Weather</h1>
@@ -363,7 +374,7 @@ function Kiosk() {
           </div>
         )}
       </div>
-      <div className="footer"><img src="footer.png" alt="footer" /></div>
+      <div className="footer"><img src="/kiosk/footer.png" alt="footer" /></div>
     </div>
     
   );

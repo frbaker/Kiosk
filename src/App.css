@@ -15,9 +15,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.homePageContent{
-  color:blanchedalmond;
-}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -64,6 +62,16 @@
   color:white;
   margin-left: 20px;
   align-self: start;
+  font-size:1.8em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 680px;
+}
+.weather::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in webkit-based browsers */
+}
+.weather h1{
+  font-size:3em;
 }
 .events { 
   grid-area: events; 
@@ -87,6 +95,12 @@
 }
 .smads{
   grid-area: smads;
+  padding: 60px 40px;
+}
+.smads video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .headerH1 {
   color:white;
@@ -175,6 +189,7 @@ h1 {
 }
 .time{
   text-align:right;
+  margin-right:20px;
 }
 .bold{
   font-weight: bold;
@@ -235,3 +250,116 @@ h1 {
   pointer-events: none; /* So the highlight doesn't interfere with touch events */
   transform: translate(-50%, -50%); /* Center the highlight on the touch point */
 }
+
+.servicesContent {
+  margin: 0; /* Remove default margins */
+  padding: 20px; /* Space around the page */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  background-color: #272222; /* Optional background color */
+  font-size: 3em;
+}
+
+.servicesContainer {
+  width: 80%; /* Adjust content width */
+  max-width: 1200px; /* Set a maximum width */
+  background-color: #fff; /* Optional background for the content */
+  padding: 20px; /* Inner padding for the content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
+  border-radius: 8px; /* Optional rounded corners */
+}
+.servicesContainer h2 {
+  color: rgba(241, 98, 35, 1);
+    text-align: center;
+    background-clip: border-box;
+    background-image: none;
+    font-size: 4em;
+    font-family: Allura;
+}
+.servicesContainer .cats {
+  display: flex;
+  flex-wrap: wrap;
+}
+.servicesContainer .alternateCatStyle .maincatbox {
+  border: solid 1px rgba(0, 55, 104, 1);
+  margin-bottom: 20px;
+  border-radius: 20px 5px 0 0;
+}
+
+.servicesContainer .maincatbox {
+  min-width: 250px;
+  width:45%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.servicesContainer .alternateCatStyle .maincatbox h5 {
+  margin: 0 auto;
+  padding: 10px 3px;
+  background-color: rgba(0, 55, 104, 1);
+  width: 98%;
+  font-size: 1em;
+  color: white;
+  border-radius: 20px 5px 0 0;
+}
+.servicesContainer .alternateCatStyle .maincatbox div {
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 55, 104, 1);
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  padding: 1em 5%;
+}
+.modalButton {
+  margin-top: 10px;
+  padding: 12px 25px;
+  background: linear-gradient(145deg, #007bff, #0056b3); /* Gradient for depth */
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 1em;
+  box-shadow: 14px 14px 16px rgba(0, 0, 0, 0.2), -14px -14px 16px rgba(255, 255, 255, 0.3); /* 3D shadow effect */
+}
+/* Hover effect */
+.modalButton:hover {
+  background: linear-gradient(145deg, #0056b3, #007bff); /* Reverse gradient on hover */
+  box-shadow: 16px 16px 18px rgba(0, 0, 0, 0.3), -16px -16px 18px rgba(255, 255, 255, 0.4); /* Slightly stronger shadow */
+  transform: translateY(-12px); /* Lift effect */
+}
+
+/* Focus effect */
+.modalButton:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.6); /* Blue highlight on focus */
+}
+
+/* Active effect */
+.modalButton:active {
+  background: linear-gradient(145deg, #004085, #003366); /* Darker gradient when clicked */
+  box-shadow: inset 14px 14px 16px rgba(0, 0, 0, 0.3), inset -14px -14px 16px rgba(255, 255, 255, 0.4); /* Inset shadow for pressed effect */
+  transform: translateY(12px); /* Pressed down effect */
+}
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  }
+.modalContents {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 1000px;
+  font-size:2.8em;
+}
+  

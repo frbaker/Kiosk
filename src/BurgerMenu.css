@@ -1,11 +1,13 @@
 .bm-menu {
-  background: #adafb9;
+  background-color: rgba(37, 35, 35, .95);
   padding: 2.5em 1.5em 0;
   font-size: 2.15em;
   position: relative; /* Ensure submenus are positioned relative to this container */
 }
 
-.bm-item {
+.bm-item,
+.bm-item a,
+.bm-item a:visited {
   display: inline-block;
   color: #fff;
   text-decoration: none;
